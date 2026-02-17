@@ -1,10 +1,10 @@
-# ✈️ Travel Alarm App
+#  Travel Alarm App
 
 A beautiful Flutter app for smart travel alarms with onboarding, location access, and scheduled notifications — built with **GetX** architecture.
 
 ---
 
-## 📱 Screens
+##  Screens
 
 | Onboarding 1 | Onboarding 2 | Onboarding 3 | Location | Home |
 |:---:|:---:|:---:|:---:|:---:|
@@ -12,7 +12,7 @@ A beautiful Flutter app for smart travel alarms with onboarding, location access
 
 ---
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 lib/
@@ -65,28 +65,28 @@ lib/
 | Package | Purpose |
 
   # State Management
-  get:
-
-  # Location
-  geolocator:
-  geocoding:
-  permission_handler:
-  google_places_flutter:
-
-  # Local Notifications
-  flutter_local_notifications:
-  timezone:
-
-  # Local Storage
-  hive:
-  hive_flutter:
-
-  # Unique IDs
-  uuid:
-
-  # UI Helpers
-
-  intl:
+    get:
+  
+    # Location
+    geolocator:
+    geocoding:
+    permission_handler:
+    google_places_flutter:
+  
+    # Local Notifications
+    flutter_local_notifications:
+    timezone:
+  
+    # Local Storage
+    hive:
+    hive_flutter:
+  
+    # Unique IDs
+    uuid:
+  
+    # UI Helpers
+  
+    intl:
 
 
 
