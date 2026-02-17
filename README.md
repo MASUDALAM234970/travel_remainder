@@ -57,51 +57,44 @@ lib/
 
 ---
 
-## 🚀 Setup
-
-### 1. Install Dependencies
-```bash
-flutter pub get
-```
-
-### 2. Generate Hive Adapters
-```bash
-flutter pub run build_runner build --delete-conflicting-outputs
-```
-
-### 3. Run
-```bash
-flutter run
-```
 
 ---
 
-## 📦 Dependencies
+
 
 | Package | Purpose |
-|---------|---------|
-| `get ^4.6.6` | State management, routing, DI |
-| `geolocator ^11.0.0` | GPS location |
-| `geocoding ^3.0.0` | Reverse geocoding (coordinates → address) |
-| `permission_handler ^11.3.0` | Runtime permissions |
-| `flutter_local_notifications ^17.2.2` | Local alarm notifications |
-| `timezone ^0.9.4` | Timezone-aware scheduling |
-| `hive ^2.2.3` | Fast local database |
-| `hive_flutter ^1.1.0` | Hive Flutter integration |
-| `uuid ^4.4.0` | Unique alarm IDs |
-| `intl ^0.19.0` | Date/time formatting |
 
----
+  # State Management
+  get:
 
-## ✨ Features
+  # Location
+  geolocator:
+  geocoding:
+  permission_handler:
+  google_places_flutter:
+
+  # Local Notifications
+  flutter_local_notifications:
+  timezone:
+
+  # Local Storage
+  hive:
+  hive_flutter:
+
+  # Unique IDs
+  uuid:
+
+  # UI Helpers
+
+  intl:
+
+
+
+
+##  Features
 
 ### Onboarding
-- 3 fullscreen pages with custom `CustomPainter` travel scenes:
-  - **Screen 1**: Airplane wing through clouds ✈️
-  - **Screen 2**: Sunset ocean waves 🌊
-  - **Screen 3**: Sailboat on turquoise water ⛵
-- Animated page indicator dots
-- Skip button
+
 
 ### Location
 - GPS permission request with `permission_handler`
@@ -127,44 +120,49 @@ flutter run
 - Full-screen intent on Android
 - Snackbar feedback on set/delete
 
----
+### PERMISSION_MANIFEST
 
-## 🤖 Android Setup
+    <!-- Internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
-Add to `android/app/build.gradle`:
-```groovy
-android {
-    compileSdkVersion 34
-    defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 34
-    }
-}
-```
+    <!-- Location -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
-The `AndroidManifest.xml` includes all required permissions:
-- `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION`
-- `SCHEDULE_EXACT_ALARM`, `USE_EXACT_ALARM`
-- `POST_NOTIFICATIONS`
-- `RECEIVE_BOOT_COMPLETED` (alarms survive reboot)
+    <!-- Alarms & Notifications -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
----
 
-## 🍎 iOS Setup
+    
+     <receiver
+          android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
+                android:exported="false"/>
 
-`Info.plist` includes:
-- `NSLocationWhenInUseUsageDescription`
-- `NSLocationAlwaysUsageDescription`
-- `UIBackgroundModes: fetch, remote-notification`
+        <receiver
+            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
 
----
+        <service
+            android:name="com.dexterous.flutterlocalnotifications.ForegroundService"
+            android:exported="false"
+            android:stopWithTask="false"/>
 
-## 🎨 Design System
 
-| Token | Value |
-|-------|-------|
-| Primary | `#5B2EFF` |
-| Background | `#0A0B1E` |
-| Surface | `#1A1B3A` |
-| Text Primary | `#FFFFFF` |
-| Text Secondary | `#B0B3CC` |
+
+
