@@ -6,19 +6,15 @@ import '../../../../constants/app_colors.dart';
 class OnboardingPageWidget extends StatelessWidget {
   final OnboardingData data;
 
-  const OnboardingPageWidget({
-    super.key,
-    required this.data,
-  });
+  const OnboardingPageWidget({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsGeometry.symmetric(horizontal: 5,vertical: 5),
+      padding: const EdgeInsetsGeometry.symmetric(horizontal: 5, vertical: 5),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           Center(
             child: Image.asset(
               data.image,
@@ -37,7 +33,7 @@ class OnboardingPageWidget extends StatelessWidget {
 
           // Title
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(left: 10),
             child: Text(
               data.title,
               style: AppTextStyles.displayMedium.copyWith(
@@ -45,7 +41,7 @@ class OnboardingPageWidget extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 10),
 
           // Description
           Padding(

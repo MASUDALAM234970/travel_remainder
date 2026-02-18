@@ -55,7 +55,7 @@ class _AddAlarmBottomSheetState extends State<AddAlarmBottomSheet> {
               const SizedBox(height: 20),
 
               // Title
-              const Text(
+               Text(
                 'Set Alarm',
                 style: AppTextStyles.headlineMedium,
               ),

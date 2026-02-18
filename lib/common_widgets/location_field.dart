@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import '../constants/app_colors.dart';
-import '../constants/app_text_styles.dart';
 
 class LocationField extends StatelessWidget {
   final String locationText;
@@ -14,16 +16,18 @@ class LocationField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isEmpty = locationText.isEmpty;
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 56,
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        height: 56.h,
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         decoration: BoxDecoration(
           color: AppColors.surface.withOpacity(0.8),
-          borderRadius: BorderRadius.circular(28),
+          borderRadius: BorderRadius.circular(28.r),
           border: Border.all(
-            color: locationText.isNotEmpty
+            color: !isEmpty
                 ? AppColors.primary.withOpacity(0.3)
                 : Colors.transparent,
           ),
@@ -32,31 +36,35 @@ class LocationField extends StatelessWidget {
           children: [
             Icon(
               Icons.location_on_outlined,
-              color: locationText.isNotEmpty
+              color: !isEmpty
                   ? AppColors.primary
                   : AppColors.textHint,
-              size: 22,
+              size: 24.sp,
             ),
-            const SizedBox(width: 12),
+
+            SizedBox(width: 12.w),
+
             Expanded(
               child: Text(
-                locationText.isEmpty ? 'Add your location' : locationText,
-                style: locationText.isEmpty
-                    ? AppTextStyles.bodyLarge.copyWith(
-                        color: AppColors.textHint,
-                      )
-                    : AppTextStyles.bodyLarge.copyWith(
-                        color: AppColors.textPrimary,
-                        fontWeight: FontWeight.w500,
-                      ),
+                isEmpty ? 'Add your location' : locationText,
+                maxLines: 1,
                 overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.poppins(
+                  fontSize: 15.sp,
+                  color: isEmpty
+                      ? AppColors.textHint
+                      : AppColors.textPrimary,
+                  fontWeight:
+                  isEmpty ? FontWeight.w400 : FontWeight.w500,
+                ),
               ),
             ),
-            if (locationText.isNotEmpty)
+
+            if (!isEmpty)
               Icon(
                 Icons.edit_outlined,
                 color: AppColors.textHint.withOpacity(0.6),
-                size: 18,
+                size: 18.sp,
               ),
           ],
         ),

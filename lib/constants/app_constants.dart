@@ -16,7 +16,7 @@ class AppConstants {
 
   static const List<OnboardingData> onboardingData = [
     OnboardingData(
-      title: 'Discover the world,\none journey at a time.',
+      title: 'Discover the world,one \n journey at a time.',
       subtitle: 'Discover the World',
       description:
           'From hidden gems to iconic destinations, we make travel simple, inspiring, and unforgettable. Start your next adventure today.',

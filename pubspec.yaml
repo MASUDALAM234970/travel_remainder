@@ -49,9 +49,10 @@ dev_dependencies:
   # Location
   geolocator:
   geocoding:
-  permission_handler:
+  #permission_handler:
   google_places_flutter:
   http:
+  permission_handler: ^11.0.0
 
   # Local Notifications
   flutter_local_notifications:
@@ -70,6 +71,14 @@ dev_dependencies:
 
   google_fonts:
   flutter_screenutil:
+  flutter_launcher_icons:
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo_one.jpeg"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/images/logo_one.jpeg"
+
 
 
 flutter:
@@ -77,6 +86,7 @@ flutter:
     - assets/images/
     - assets/images/on_three.png
     - assets/images/location-05.png
+    - assets/images/logo_one.jpeg
 
   uses-material-design: true
 

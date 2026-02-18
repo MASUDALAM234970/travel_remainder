@@ -12,7 +12,7 @@ class AppColors {
   static const Color secondary = Color(0xFF8B6FF5);
 
   // Background
-  static const Color background = Color(0xFF0A0B1E);
+  static const Color background = Color(0xFF082257);
   static const Color backgroundSecondary = Color(0xFF0F1230);
   static const Color surface = Color(0xFF1A1B3A);
   static const Color surfaceLight = Color(0xFF252650);
@@ -28,13 +28,16 @@ class AppColors {
 
   // Gradient
   static const List<Color> backgroundGradient = [
-    Color(0xFF0A0B1E),
-    Color(0xFF0D1033),
-    Color(0xFF0A1628),
+    // Color(0xFF0A0B1E),
+    // Color(0xFF0D1033),
+    // Color(0xFF0A1628),
+    Color(0xFF0B0024),
+    Color(0xFF082257),
+
   ];
 
   static const List<Color> cardGradient = [
-    Color(0xFF1E2045),
-    Color(0xFF161838),
+    Color(0xFF082257),
+    Color(0xFF0B0024),
   ];
 }

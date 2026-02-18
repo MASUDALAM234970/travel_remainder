@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/location_controller.dart';
@@ -37,20 +35,7 @@ class LocationView extends GetView<LocationController> {
     );
   }
 
-  // Widget _buildImageSection() {
-  //   return Stack(
-  //     fit: StackFit.expand,
-  //     children: [
-  //       ClipRRect(
-  //         borderRadius: const BorderRadius.only(
-  //           bottomLeft: Radius.circular(32),
-  //           bottomRight: Radius.circular(32),
-  //         ),
-  //         child: _buildRoadSceneImage(),
-  //       ),
-  //     ],
-  //   );
-  // }
+
 
   Widget _buildContentSection(BuildContext context) {
     return Padding(
@@ -58,12 +43,12 @@ class LocationView extends GetView<LocationController> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+           Text(
             'Welcome! Your Smart\nTravel Alarm',
             style: AppTextStyles.displayMedium,
           ),
           const SizedBox(height: 12),
-          const Text(
+           Text(
             'Stay on schedule and enjoy every moment of your journey.',
             style: AppTextStyles.bodyLarge,
           ),
@@ -94,7 +79,7 @@ class LocationView extends GetView<LocationController> {
             }
             return const SizedBox.shrink();
           }),
-
+          SizedBox(height: 20,),
           // Location status + loading
           Obx(() {
             if (controller.isLoading.value) {

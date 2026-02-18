@@ -35,7 +35,7 @@ class OnboardingView extends GetView<OnboardingController> {
             right: 24,
             child: GestureDetector(
               onTap: controller.skipOnboarding,
-              child: const Text(
+              child:  Text(
                 'Skip',
                 style: AppTextStyles.skipButton,
               ),
@@ -51,7 +51,7 @@ class OnboardingView extends GetView<OnboardingController> {
               padding: EdgeInsets.only(
                 left: 24,
                 right: 24,
-                bottom: MediaQuery.of(context).padding.bottom + 24,
+                bottom: MediaQuery.of(context).padding.bottom + 50,
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,

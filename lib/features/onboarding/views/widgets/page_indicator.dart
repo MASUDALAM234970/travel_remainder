@@ -20,14 +20,14 @@ class PageIndicator extends StatelessWidget {
         return AnimatedContainer(
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,
-          margin: const EdgeInsets.symmetric(horizontal: 4),
-          width: isActive ? 24 : 8,
+          margin: const EdgeInsets.symmetric(horizontal: 3),
+          width: isActive ? 20 : 8,
           height: 8,
-          decoration: BoxDecoration(
+          decoration: ShapeDecoration(
             color: isActive
                 ? AppColors.primary
                 : AppColors.textHint.withOpacity(0.5),
-            borderRadius: BorderRadius.circular(4),
+            shape: const CircleBorder(),
           ),
         );
       }),

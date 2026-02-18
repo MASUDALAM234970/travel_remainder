@@ -10,17 +10,13 @@ import 'constants/app_routes.dart';
 import 'features/alarm/models/alarm_model.dart';
 import 'helpers/notification_helper.dart';
 
-import 'package:timezone/data/latest.dart' as tz;
-import 'package:timezone/timezone.dart' as tz;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // ✅ Timezone init (FIX +1 hour)
-  tz.initializeTimeZones();
-  tz.setLocalLocation(tz.getLocation('Asia/Dhaka'));
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -44,7 +40,7 @@ void main() async {
 
   // Initialize notifications **once** here
 
-  await NotificationHelper.initialize();  // ← here, once
+  await NotificationHelper.initialize();
 
   runApp(const MyApp());
 }
@@ -54,20 +50,29 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Travel Alarm',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: AppColors.background,
-        colorScheme: ColorScheme.dark(
-          primary: AppColors.primary,
-          secondary: AppColors.secondary,
-          surface: AppColors.surface,
-        ),
-        useMaterial3: true,
-      ),
-      initialRoute: AppRoutes.onboarding,
-      getPages: AppRoutes.pages,
+    return ScreenUtilInit(
+      designSize: const Size(375, 812), // Figma design size
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return GetMaterialApp(
+          title: 'Travel Remainder ',
+          debugShowCheckedModeBanner: false,
+
+          theme: ThemeData(
+            scaffoldBackgroundColor: AppColors.background,
+            colorScheme: const ColorScheme.dark(
+              primary: AppColors.primary,
+              secondary: AppColors.secondary,
+              surface: AppColors.surface,
+            ),
+            useMaterial3: true,
+          ),
+
+          initialRoute: AppRoutes.onboarding,
+          getPages: AppRoutes.pages,
+        );
+      },
     );
   }
 }
