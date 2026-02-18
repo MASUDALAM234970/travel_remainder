@@ -20,6 +20,12 @@ lib/
 │   ├── location_field.dart        # Reusable location input field
 │   ├── primary_button.dart        # Gradient CTA button
 │   └── secondary_button.dart      # Outlined button
+├── core
+│   ├── endpoint      
+│         ├── local_storage        # Api integration part
+│         └── api_client.dart
+          └── api_endpoint.dart
+    
 ├── constants/
 │   ├── app_colors.dart            # Color palette
 │   ├── app_constants.dart         # Onboarding data & app constants
@@ -87,6 +93,44 @@ lib/
     # UI Helpers
   
     intl:
+
+    flutter_lints:
+
+      # State Management
+      get:
+    
+      # Location
+      geolocator:
+      geocoding:
+      #permission_handler:
+      google_places_flutter:
+      http:
+      permission_handler: ^11.0.0
+    
+      # Local Notifications
+      flutter_local_notifications:
+      timezone:
+    
+      # Local Storage
+      hive:
+      hive_flutter:
+    
+      # Unique IDs
+      uuid:
+    
+      # UI Helpers
+    
+      intl:
+    
+      google_fonts:
+      flutter_screenutil:
+      flutter_launcher_icons:
+    flutter_icons:
+      android: true
+      ios: true
+      image_path: "assets/images/logo_one.jpeg"
+      adaptive_icon_background: "#ffffff"
+      adaptive_icon_foreground: "assets/images/logo_one.jpeg"
 
 
 
