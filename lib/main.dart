@@ -10,11 +10,17 @@ import 'constants/app_routes.dart';
 import 'features/alarm/models/alarm_model.dart';
 import 'helpers/notification_helper.dart';
 
+import 'package:timezone/data/latest.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
+
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // ✅ Timezone init (FIX +1 hour)
+  tz.initializeTimeZones();
+  tz.setLocalLocation(tz.getLocation('Asia/Dhaka'));
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

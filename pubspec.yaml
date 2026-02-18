@@ -51,6 +51,7 @@ dev_dependencies:
   geocoding:
   permission_handler:
   google_places_flutter:
+  http:
 
   # Local Notifications
   flutter_local_notifications:
@@ -67,13 +68,15 @@ dev_dependencies:
 
   intl:
 
-
+  google_fonts:
+  flutter_screenutil:
 
 
 flutter:
   assets:
     - assets/images/
     - assets/images/on_three.png
+    - assets/images/location-05.png
 
   uses-material-design: true
 
